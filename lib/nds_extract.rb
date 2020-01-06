@@ -1,17 +1,13 @@
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 require 'directors_database'
-require 'pp'
 
-
-require 'directors_database'
 
 def directors_totals
   nds = directors_database
   index = 0
 
-  dir_name_to_movies_total = {}
-
   while index < nds.length do
+    hash = {}
     director_index = 0
     name = nds[index][:name]
     movie = nds[index][:movies]
@@ -22,11 +18,10 @@ def directors_totals
       director_index +=1
     end
 
-    dir_name_to_movies_total[name] = total
+    hash[name] = total
     index +=1
   end
-
-  return dir_name_to_movies_total
+  pp hash
 end
 
 
