@@ -16,7 +16,13 @@ def directors_totals(nds)
   while row_index < nds.length do
     column_index = 0
     while column_index < nds[row_index].length do
-      result << nds[row_index][column_index][:name]
+      name = nds[row_index][column_index][:name]
+      inner_len = nds[row_index][column_index].length
+      inner_index = 0
+      while inner_index < inner_len do
+      result << name = nds[row_index][column_index][inner_index][:movies]
+      inner_index += 1
+    end
       column_index  += 1
     end
     row_index += 1
