@@ -3,10 +3,13 @@ require 'directors_database'
 require 'pp'
 
 
+require 'directors_database'
+
 def directors_totals
   nds = directors_database
   index = 0
-  name_to_movies = {}
+
+  dir_name_to_movies_total = {}
 
   while index < nds.length do
     director_index = 0
@@ -16,17 +19,15 @@ def directors_totals
 
     while director_index < movie.length do
       total = total + movie[director_index][:worldwide_gross]
-      director_index += 1
+      director_index +=1
     end
 
-    name_to_movies[name] = total
-    index += 1
+    dir_name_to_movies_total[name] = total
+    index +=1
   end
-  return name_to_movies
+
+  return dir_name_to_movies_total
 end
-
-
-
 
 
 
